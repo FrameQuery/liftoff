@@ -1,0 +1,44 @@
+package canaryCmd
+
+import (
+	"fmt"
+	"time"
+
+	"github.com/framequery/liftoff/internal/gcloud"
+	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
+)
+
+var Cmd = &cobra.Command{
+	Use:           "canary",
+	Short:         "Run a canary rollout",
+	SilenceUsage:  true,
+	SilenceErrors: true,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		project := viper.GetString("project")
+		service := viper.GetString("service")
+		image := viper.GetString("image")
+		regions := viper.GetStringSlice("regions")
+		percentages := viper.GetIntSlice("percentages")
+		intervals := viper.GetIntSlice("intervals")
+		envVars := viper.GetStringSlice("env-vars")
+		// deploy revisions
+		for _, r := range regions {
+			if err := gcloud.Deploy(service, image, r, project, envVars); err != nil {
+				return err
+			}
+		}
+
+		// rollout phases
+		for i, pct := range percentages {
+			gcloud.SplitTrafficAcrossRegions(service, regions, pct, project)
+			if i < len(intervals) {
+				fmt.Printf("⏱️  Waiting %d seconds\n", intervals[i])
+				time.Sleep(time.Duration(intervals[i]) * time.Second)
+			}
+			// TODO: add health checks & rollback
+		}
+		fmt.Println("🎉  Canary complete at 100%")
+		return nil
+	},
+}
