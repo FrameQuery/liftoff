@@ -20,13 +20,11 @@ var rootCmd = &cobra.Command{
 		if err := config.Load(); err != nil {
 			return err
 		}
-		// ensure auth
 		return auth.Ensure()
 	},
 }
 
 func init() {
-	// bind flags to viper
 	config.BindFlags(rootCmd)
 
 	rootCmd.AddCommand(canaryCmd.Cmd)

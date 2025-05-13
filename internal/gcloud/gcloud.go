@@ -33,7 +33,6 @@ func ServiceExists(service, region, project string) bool {
 	if err != nil {
 		return false
 	}
-	println(string(out))
 	// If it exactly matches the service name, it exists
 	return !strings.Contains(string(out), "Listed 0 items.")
 }
@@ -52,12 +51,10 @@ func Deploy(service, image, region, project string, envVars []string) error {
 		args = append(args, "--set-env-vars="+strings.Join(envVars, ","))
 	}
 	serviceExists := ServiceExists(service, region, project)
-	println("Service exists:", serviceExists)
 	if serviceExists {
 		args = append(args, "--no-traffic")
 	} else {
 		fmt.Println("⚠️  Service does not exist, first deployment will be without --no-traffic")
-
 	}
 
 	return Run(args...)

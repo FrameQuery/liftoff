@@ -29,14 +29,13 @@ var Cmd = &cobra.Command{
 			}
 		}
 
-		// rollout phases
 		for i, pct := range percentages {
 			gcloud.SplitTrafficAcrossRegions(service, regions, pct, project)
+
 			if i < len(intervals) {
 				fmt.Printf("⏱️  Waiting %d seconds\n", intervals[i])
 				time.Sleep(time.Duration(intervals[i]) * time.Second)
 			}
-			// TODO: add health checks & rollback
 		}
 		fmt.Println("🎉  Canary complete at 100%")
 		return nil
