@@ -144,3 +144,4 @@ Please follow our [Contributing Guidelines](CONTRIBUTING.md).
 [MIT](LICENSE)
 
 Enjoy safe liftoffs! 🚀
+Made by [Framequery](https://www.framequery.com/)
