@@ -3,6 +3,12 @@ Welcome to **liftoff** 🚀 Your go‑to CLI for multi‑region Cloud Run canary
 
 ---
 
+### 📥 Pre-requisites
+
+This CLI heavily relies on the GCLOUD cli tool. You must have it installed
+
+If you don't follow [this guide](https://cloud.google.com/sdk/docs/install)
+
 ### 🛠️ Installation
 
 Make sure you have Go 1.20+ installed and your `GOPATH` configured. Then:

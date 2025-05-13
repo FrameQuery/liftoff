@@ -30,7 +30,9 @@ var Cmd = &cobra.Command{
 		}
 
 		for i, pct := range percentages {
-			gcloud.SplitTrafficAcrossRegions(service, regions, pct, project)
+			if err := gcloud.SplitTrafficAcrossRegions(service, regions, pct, project); err != nil {
+				return err
+			}
 
 			if i < len(intervals) {
 				fmt.Printf("⏱️  Waiting %d seconds\n", intervals[i])
