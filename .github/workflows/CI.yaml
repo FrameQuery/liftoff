@@ -26,4 +26,4 @@ jobs:
         run:  go test ./...
 
       - name: Build
-        run: go build -o bin/liftoff ./cmd/loftoff
+        run: go build -o bin/liftoff ./cmd/liftoff

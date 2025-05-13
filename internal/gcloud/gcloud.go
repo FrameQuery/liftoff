@@ -12,7 +12,6 @@ import (
 // Run executes a gcloud command and streams output
 func Run(args ...string) error {
 	cmd := exec.Command("gcloud", args...)
-	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd.Run()
 }
