@@ -1,5 +1,5 @@
 <p align="center">
-  <img  width="200" src="" alt="Centered Image"/>
+  <img  width="200" src="https://github.com/user-attachments/assets/2992c99d-0201-42c5-ab16-5ff73073b929" alt="Centered Image"/>
   <h1 align="center">Liftoff</h1>
 </p>
 
@@ -21,9 +21,8 @@ Welcome to <b>Liftoff</b> 🚀 Your go‑to CLI for multi‑region Cloud Run can
 
 ### 📥 Pre-requisites
 
-This CLI heavily relies on the GCLOUD cli tool. You must have it installed
-
-If you don't follow [this guide](https://cloud.google.com/sdk/docs/install)
+This CLI heavily relies on the GCLOUD cli tool. You must have it installed.
+If you don't, follow [this guide](https://cloud.google.com/sdk/docs/install)
 
 ### 🛠️ Installation
 
