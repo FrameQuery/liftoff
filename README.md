@@ -21,9 +21,8 @@ Welcome to <b>Liftoff</b> 🚀 Your go‑to CLI for multi‑region Cloud Run can
 
 ### 📥 Pre-requisites
 
-This CLI heavily relies on the GCLOUD cli tool. You must have it installed
-
-If you don't follow [this guide](https://cloud.google.com/sdk/docs/install)
+This CLI heavily relies on the GCLOUD cli tool. You must have it installed.
+If you don't, follow [this guide](https://cloud.google.com/sdk/docs/install)
 
 ### 🛠️ Installation
 
