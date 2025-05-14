@@ -1,7 +1,23 @@
-# liftoff
-Welcome to **liftoff** 🚀 Your go‑to CLI for multi‑region Cloud Run canary deployments! This README will guide you through installation, configuration, and usage with plenty of examples and emojis to keep things fun 🎉.
+<p align="center">
+  <img  width="200" src="" alt="Centered Image"/>
+  <h1 align="center">Liftoff</h1>
+</p>
 
----
+<p align="center">
+Welcome to <b>Liftoff</b> 🚀 Your go‑to CLI for multi‑region Cloud Run canary deployments! This README will guide you through installation, configuration, and usage with plenty of examples and emojis to keep things fun 🎉.
+  <br/>
+  <!-- <a href="https://flynnfc.dev/work/bagginsdb">
+    Learn more on how it's made here
+  </a> -->
+</p>
+
+<p align="center">
+  <img src="https://github.com/framequery/liftoff/actions/workflows/release.yaml/badge.svg" alt="Build badge">
+  <a href="https://github.com/framequery/liftoff/blob/main/LICENSE.md">
+    <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT" title="MIT License" />
+  </a>
+</p>
+  
 
 ### 🛠️ Installation
 
