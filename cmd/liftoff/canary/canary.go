@@ -11,7 +11,7 @@ import (
 
 var Cmd = &cobra.Command{
 	Use:           "canary",
-	Short:         "Run a canary rollout",
+	Short:         "🐦  Run a canary rollout",
 	SilenceUsage:  true,
 	SilenceErrors: true,
 	RunE: func(cmd *cobra.Command, args []string) error {

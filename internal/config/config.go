@@ -31,6 +31,7 @@ func Load() error {
 	viper.SetDefault("regions", []string{"europe-west2", "europe-west4"})
 	viper.SetDefault("percentages", []int{10, 50, 100})
 	viper.SetDefault("intervals", []int{300, 300})
+	viper.SetDefault("ingress", "internal-only")
 	return nil
 }
 
@@ -40,6 +41,7 @@ func BindFlags(cmd *cobra.Command) {
 	f.StringP("project", "p", "", "GCP project ID")
 	f.StringP("service", "s", "", "Cloud Run service name")
 	f.StringP("image", "i", "", "Container image URL for canary")
+	f.StringSlice("ingress", nil, "Ingress settings (all, internal-only, internal-and-cloud-run)")
 	f.StringSlice("regions", nil, "GCP regions (comma-separated)")
 	f.IntSlice("percentages", nil, "Traffic percentages e.g. 10,50,100")
 	f.IntSlice("intervals", nil, "Intervals (s) between steps")
@@ -67,6 +69,9 @@ func BindFlags(cmd *cobra.Command) {
 
 	}
 	if err := viper.BindPFlag("intervals", f.Lookup("intervals")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
+	if err := viper.BindPFlag("ingress", f.Lookup("ingress")); err != nil {
 		fmt.Printf("⚠️  ERROR: %v\n", err)
 	}
 

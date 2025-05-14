@@ -58,7 +58,8 @@ By default, **liftoff** saves your settings to `$TMP/liftoff_config.json`. You c
 | `--regions`    | `LIFTOFF_REGIONS`    | Comma‑separated GCP regions (e.g. `europe-west2,europe-west4`) | `europe-west2,europe-west4` |
 | `--percentages`| `LIFTOFF_PCTS`       | Traffic percentages (e.g. `10,50,100`)                   | `10,50,100`              |
 | `--intervals`  | `LIFTOFF_INTVLS`     | Seconds between rollout steps (e.g. `300,300`)           | `300,300`                |
-| `--env-vars`   | `LIFTOFF_ENV_VARS`   | Comma-separated KEY=VALUE pairs                          | **none** (required)      |
+| `--ingress`    | `LIFTOFF_INGRESS`    | Kinds of allowed ingress                                 | `internal-only`          |
+| `--env-vars`   | `LIFTOFF_ENV_VARS`   | Comma-separated KEY=VALUE pairs                          | **none**                 |
 
 ---
 
