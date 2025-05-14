@@ -1,5 +1,5 @@
 <p align="center">
-  <img  width="200" src="" alt="Centered Image"/>
+  <img  width="200" src="https://github.com/user-attachments/assets/2992c99d-0201-42c5-ab16-5ff73073b929" alt="Centered Image"/>
   <h1 align="center">Liftoff</h1>
 </p>
 
