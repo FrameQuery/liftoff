@@ -1,6 +1,7 @@
 package config
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 
@@ -44,13 +45,30 @@ func BindFlags(cmd *cobra.Command) {
 	f.IntSlice("intervals", nil, "Intervals (s) between steps")
 	f.StringSlice("env-vars", nil, "Environment variables (KEY=VALUE) to set on each revision")
 
-	viper.BindPFlag("env-vars", f.Lookup("env-vars"))
-	viper.BindPFlag("project", f.Lookup("project"))
-	viper.BindPFlag("service", f.Lookup("service"))
-	viper.BindPFlag("image", f.Lookup("image"))
-	viper.BindPFlag("regions", f.Lookup("regions"))
-	viper.BindPFlag("percentages", f.Lookup("percentages"))
-	viper.BindPFlag("intervals", f.Lookup("intervals"))
+	if err := viper.BindPFlag("env-vars", f.Lookup("env-vars")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
+	if err := viper.BindPFlag("project", f.Lookup("project")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
+	if err := viper.BindPFlag("service", f.Lookup("service")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
+	if err := viper.BindPFlag("image", f.Lookup("image")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
+	if err := viper.BindPFlag("regions", f.Lookup("regions")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
+	if err := viper.BindPFlag("percentages", f.Lookup("percentages")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
+	if err := viper.BindPFlag("percentages", f.Lookup("percentages")); err != nil {
+
+	}
+	if err := viper.BindPFlag("intervals", f.Lookup("intervals")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
 
 	cmd.PersistentPreRunE = func(cmd *cobra.Command, args []string) error {
 		// persist config
