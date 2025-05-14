@@ -39,7 +39,7 @@ liftoff --help
 You can also build from source:
 
 ```bash
-git clone https://github.com/fromequery/liftoff.git
+git clone https://github.com/framequery/liftoff.git
 cd liftoff
 go build -o liftoff ./cmd/liftoff
 ```
