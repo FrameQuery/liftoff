@@ -111,9 +111,7 @@ liftoff canary \
   --intervals=0
 ```
 - Skips staging phases and sends 100% traffic immediately.
-
-### 🛠️ Saving defaults per service
-
+### ⚙️ Config & Defaults
 ```bash
 # Save defaults for 'internal-api'
 liftoff config set internal-api \
@@ -126,6 +124,8 @@ liftoff config set internal-api \
 # View all saved configs
 liftoff config view
 ```
+- You can set/view default config settings per service video with the config command
+---
 
 ### 🔍 Flags & Commands Reference
 
@@ -145,8 +145,6 @@ Key flags for `canary`:
 - `--percentages`   : Traffic split percentages
 - `--intervals`     : Seconds between shifts
 
-
----
 
 ### ❤️ Contributing
 
