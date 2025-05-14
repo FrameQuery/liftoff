@@ -31,7 +31,7 @@ Make sure you have Go 1.20+ installed and your `GOPATH` configured. Then:
 
 ```bash
 # Install the CLI
-go install github.com/yourorg/liftoff/cmd/liftoff@latest
+go install github.com/framequery/liftoff/cmd/liftoff@latest
 
 # Verify installation
 liftoff --help
@@ -40,7 +40,7 @@ liftoff --help
 You can also build from source:
 
 ```bash
-git clone https://github.com/yourorg/liftoff.git
+git clone https://github.com/fromequery/liftoff.git
 cd liftoff
 go build -o liftoff ./cmd/liftoff
 ```
