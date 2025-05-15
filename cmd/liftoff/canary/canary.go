@@ -22,9 +22,10 @@ var Cmd = &cobra.Command{
 		percentages := viper.GetIntSlice("percentages")
 		intervals := viper.GetIntSlice("intervals")
 		envVars := viper.GetStringSlice("env-vars")
+		ingress := viper.GetString("ingress")
 		// deploy revisions
 		for _, r := range regions {
-			if err := gcloud.Deploy(service, image, r, project, envVars); err != nil {
+			if err := gcloud.Deploy(service, image, r, project, ingress, envVars); err != nil {
 				return err
 			}
 		}

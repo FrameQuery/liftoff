@@ -37,7 +37,7 @@ func ServiceExists(service, region, project string) bool {
 }
 
 // Deploy wraps `gcloud run deploy`, using --no-traffic only if the service already exists.
-func Deploy(service, image, region, project string, envVars []string) error {
+func Deploy(service, image, region, project, ingress string, envVars []string) error {
 	fmt.Printf("🛰️  Deploying %s to %s (--no-traffic)\n", service, region)
 	args := []string{"run", "deploy", service,
 		"--image=" + image,
@@ -45,6 +45,7 @@ func Deploy(service, image, region, project string, envVars []string) error {
 		"--platform=managed",
 		"--project=" + project,
 		"--no-allow-unauthenticated",
+		"--ingress=" + ingress,
 	}
 	if len(envVars) > 0 {
 		args = append(args, "--set-env-vars="+strings.Join(envVars, ","))
