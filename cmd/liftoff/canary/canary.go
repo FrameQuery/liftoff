@@ -23,9 +23,10 @@ var Cmd = &cobra.Command{
 		intervals := viper.GetIntSlice("intervals")
 		envVars := viper.GetStringSlice("env-vars")
 		ingress := viper.GetString("ingress")
+		allowUnauthenticated := viper.GetBool("allow-unauthenticated")
 		// deploy revisions
 		for _, r := range regions {
-			if err := gcloud.Deploy(service, image, r, project, ingress, envVars); err != nil {
+			if err := gcloud.Deploy(service, image, r, project, ingress, envVars, allowUnauthenticated); err != nil {
 				return err
 			}
 		}

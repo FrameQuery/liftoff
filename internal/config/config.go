@@ -41,12 +41,12 @@ func BindFlags(cmd *cobra.Command) {
 	f.StringP("project", "p", "", "GCP project ID")
 	f.StringP("service", "s", "", "Cloud Run service name")
 	f.StringP("image", "i", "", "Container image URL for canary")
-	f.StringP("ingress", "in", "", "Ingress settings (all, internal-only, internal-and-cloud-run)")
+	f.StringP("ingress", "", "", "Ingress settings (all, internal-only, internal-and-cloud-run)")
 	f.StringSlice("regions", nil, "GCP regions (comma-separated)")
 	f.IntSlice("percentages", nil, "Traffic percentages e.g. 10,50,100")
 	f.IntSlice("intervals", nil, "Intervals (s) between steps")
 	f.StringSlice("env-vars", nil, "Environment variables (KEY=VALUE) to set on each revision")
-
+	f.Bool("allow-unauthenticated", false, "Allow unauthenticated access to the service")
 	if err := viper.BindPFlag("env-vars", f.Lookup("env-vars")); err != nil {
 		fmt.Printf("⚠️  ERROR: %v\n", err)
 	}
@@ -72,6 +72,9 @@ func BindFlags(cmd *cobra.Command) {
 		fmt.Printf("⚠️  ERROR: %v\n", err)
 	}
 	if err := viper.BindPFlag("ingress", f.Lookup("ingress")); err != nil {
+		fmt.Printf("⚠️  ERROR: %v\n", err)
+	}
+	if err := viper.BindPFlag("allow-unauthenticated", f.Lookup("allow-unauthenticated")); err != nil {
 		fmt.Printf("⚠️  ERROR: %v\n", err)
 	}
 
