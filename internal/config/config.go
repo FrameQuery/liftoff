@@ -41,7 +41,7 @@ func BindFlags(cmd *cobra.Command) {
 	f.StringP("project", "p", "", "GCP project ID")
 	f.StringP("service", "s", "", "Cloud Run service name")
 	f.StringP("image", "i", "", "Container image URL for canary")
-	f.StringP("ingress", "in", "", "Ingress settings (all, internal-only, internal-and-cloud-run)")
+	f.StringP("ingress", "", "", "Ingress settings (all, internal-only, internal-and-cloud-run)")
 	f.StringSlice("regions", nil, "GCP regions (comma-separated)")
 	f.IntSlice("percentages", nil, "Traffic percentages e.g. 10,50,100")
 	f.IntSlice("intervals", nil, "Intervals (s) between steps")
